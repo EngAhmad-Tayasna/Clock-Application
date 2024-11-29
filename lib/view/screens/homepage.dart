@@ -1,8 +1,10 @@
 import 'package:clock_app/controller/homecontroller.dart';
+import 'package:clock_app/view/widget/clock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
@@ -18,7 +20,7 @@ class HomePage extends GetView<HomeController> {
                     fontSize: 24,
                     fontWeight: FontWeight.normal)
                 : GoogleFonts.poppins(
-                    color: const Color(0xff686868),
+                    color: Colors.white,
                     fontSize: 24,
                     fontWeight: FontWeight.normal)),
         centerTitle: true,
@@ -63,6 +65,99 @@ class HomePage extends GetView<HomeController> {
                   (context as Element).markNeedsBuild();
                 }),
           )
+        ],
+      ),
+      body: Column(
+        children: [
+          const Clock(),
+          const SizedBox(
+            height: 45,
+          ),
+          Obx(() => Column(
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    width: 280,
+                    height: 60,
+                    decoration: BoxDecoration(
+                        color: Get.isDarkMode
+                            ? const Color(0xff141414)
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(44),
+                        boxShadow: const [
+                          BoxShadow(
+                              color: Color(0xff000029),
+                              blurRadius: 20,
+                              spreadRadius: 6)
+                        ]),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text("date : ",
+                            style: Get.isDarkMode
+                                ? GoogleFonts.poppins(
+                                    color: const Color(0xffC9C9C9),
+                                    fontSize: 12)
+                                : GoogleFonts.poppins(
+                                    color: const Color(0xffC9C9C9),
+                                    fontSize: 12)),
+                        const SizedBox(width: 16),
+                        Text(
+                          DateFormat("d - MMM - y ")
+                              .format(controller.dateTime.value),
+                          style: Get.isDarkMode
+                              ? GoogleFonts.poppins(
+                                  color: const Color(0xffC9C9C9), fontSize: 21)
+                              : GoogleFonts.poppins(
+                                  color: const Color(0xff686868), fontSize: 21),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 25),
+                  Container(
+                    alignment: Alignment.center,
+                    width: 280,
+                    height: 60,
+                    decoration: BoxDecoration(
+                        color: Get.isDarkMode
+                            ? const Color(0xff141414)
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(44),
+                        boxShadow: const [
+                          BoxShadow(
+                              color: Color(0xff000029),
+                              blurRadius: 20,
+                              spreadRadius: 6)
+                        ]),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("time : ",
+                            style: Get.isDarkMode
+                                ? GoogleFonts.poppins(
+                                    color: const Color(0xffc9c9c9),
+                                    fontSize: 12)
+                                : GoogleFonts.poppins(
+                                    color: const Color(0xffc9c9c9),
+                                    fontSize: 12)),
+                        const SizedBox(width: 32),
+                        Text(
+                          DateFormat("h : m : s a")
+                              .format(controller.dateTime.value),
+                          style: Get.isDarkMode
+                              ? GoogleFonts.poppins(
+                                  color: const Color(0xffC9C9C9), fontSize: 21)
+                              : GoogleFonts.poppins(
+                                  color: const Color(0xff686868), fontSize: 21),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ))
         ],
       ),
     );
