@@ -71,7 +71,7 @@ class HomePage extends GetView<HomeController> {
         children: [
           const Clock(),
           const SizedBox(
-            height: 45,
+            height: 55,
           ),
           Obx(() => Column(
                 children: [
@@ -86,7 +86,7 @@ class HomePage extends GetView<HomeController> {
                         borderRadius: BorderRadius.circular(44),
                         boxShadow: const [
                           BoxShadow(
-                              color: Color(0xff000029),
+                              color: Color.fromARGB(255, 144, 144, 151),
                               blurRadius: 20,
                               spreadRadius: 6)
                         ]),
@@ -97,11 +97,12 @@ class HomePage extends GetView<HomeController> {
                         Text("date : ",
                             style: Get.isDarkMode
                                 ? GoogleFonts.poppins(
-                                    color: const Color(0xffC9C9C9),
-                                    fontSize: 12)
+                                    color: const Color.fromARGB(
+                                        255, 185, 185, 185),
+                                    fontSize: 18)
                                 : GoogleFonts.poppins(
-                                    color: const Color(0xffC9C9C9),
-                                    fontSize: 12)),
+                                    color: const Color(0xffc9c9c9),
+                                    fontSize: 18)),
                         const SizedBox(width: 16),
                         Text(
                           DateFormat("d - MMM - y ")
@@ -115,7 +116,7 @@ class HomePage extends GetView<HomeController> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 25),
+                  const SizedBox(height: 35),
                   Container(
                     alignment: Alignment.center,
                     width: 280,
@@ -127,7 +128,7 @@ class HomePage extends GetView<HomeController> {
                         borderRadius: BorderRadius.circular(44),
                         boxShadow: const [
                           BoxShadow(
-                              color: Color(0xff000029),
+                              color: Color.fromARGB(255, 144, 144, 151),
                               blurRadius: 20,
                               spreadRadius: 6)
                         ]),
@@ -135,14 +136,15 @@ class HomePage extends GetView<HomeController> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("time : ",
+                        Text("time :",
                             style: Get.isDarkMode
                                 ? GoogleFonts.poppins(
-                                    color: const Color(0xffc9c9c9),
-                                    fontSize: 12)
+                                    color: const Color.fromARGB(
+                                        255, 185, 185, 185),
+                                    fontSize: 18)
                                 : GoogleFonts.poppins(
                                     color: const Color(0xffc9c9c9),
-                                    fontSize: 12)),
+                                    fontSize: 18)),
                         const SizedBox(width: 32),
                         Text(
                           DateFormat("h : m : s a")

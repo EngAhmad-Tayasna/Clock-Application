@@ -17,8 +17,10 @@ class Clock extends GetView<HomeController> {
             return AspectRatio(
               aspectRatio: 1,
               child: Container(
-                decoration: const BoxDecoration(
-                    color:  Color.fromARGB(255, 52, 52, 52),
+                decoration: BoxDecoration(
+                    color: Get.isDarkMode
+                        ? const Color.fromARGB(255, 52, 52, 52)
+                        : const Color.fromARGB(255, 254, 238, 238),
                     shape: BoxShape.circle),
                 child: Transform.rotate(
                   angle: -pi / 2,

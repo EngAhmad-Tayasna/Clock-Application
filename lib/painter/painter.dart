@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class ClockPainter extends CustomPainter {
   DateTime? dateTime;
@@ -73,7 +75,9 @@ class ClockPainter extends CustomPainter {
         centerY + size.width * .4 * sin((dateTime!.minute * 6) * pi / 180);
 
     Paint minPaint = Paint()
-      ..color = Colors.black
+      ..color = Get.isDarkMode
+          ? const Color.fromARGB(225, 255, 255, 255)
+          : Colors.black
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2;
 
